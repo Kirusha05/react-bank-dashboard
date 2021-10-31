@@ -1,8 +1,16 @@
 import React from "react";
 import { NavLink as Link } from "react-router-dom";
-import { MenuLink as Props } from "./Menubar";
+import { IconType } from "react-icons";
 
-const MenubarLink: React.FC<Props> = (props) => {
+export interface MenuLink {
+  icon: IconType;
+  name: string;
+  to: string;
+  unread?: number;
+  danger?: boolean;
+}
+
+const MenubarLink: React.FC<MenuLink> = (props) => {
   const Icon = props.icon;
 
   return (

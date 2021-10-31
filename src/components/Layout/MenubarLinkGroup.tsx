@@ -1,7 +1,7 @@
 import React from "react";
-
-import { MenuLink } from "./Menubar";
 import MenubarLink from "./MenubarLink";
+
+import { MenuLink } from "./MenubarLink";
 
 const MenubarLinkGroup: React.FC<{ links: MenuLink[] }> = (props) => {
   return (
