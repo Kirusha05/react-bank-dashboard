@@ -52,7 +52,7 @@ interface MenuProps {
 
 const Menubar: React.FC<MenuProps> = (props) => {
   return (
-    <div className={`fixed z-50 top-0 left-0 h-screen w-screen md:w-60 border-r border-gray-200 flex flex-col justify-start bg-white px-12 sm:px-24 pb-20 md:pb-2 md:px-0 ${props.showMenu ? '' : 'hidden'}`}>
+    <div className={`fixed z-50 top-0 left-0 h-screen w-full md:w-60 border-r border-gray-200 flex flex-col justify-start bg-white px-12 sm:px-24 pb-20 md:pb-2 md:px-0 ${props.showMenu ? '' : 'hidden'} md:block`}>
       <MdClose className="md:hidden absolute top-10 right-12 sm:right-24 text-3xl" onClick={props.toggleMenu} />
       {/* Main Logo */}
       <div className="w-full py-8 ml-12">

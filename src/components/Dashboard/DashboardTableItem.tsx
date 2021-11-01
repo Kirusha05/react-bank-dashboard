@@ -27,7 +27,7 @@ const DashboardTableItem: React.FC<TransactionItem> = (props) => {
       <p className="text-center lg:text-left text-sm lg:text-base">{amountIn}</p> {/* In amount */}
       <p className="text-center lg:text-left text-sm lg:text-base">{amountOut}</p> {/* Out amount */}
       <p className="text-center lg:text-left text-sm lg:text-base">{balance}</p> {/* Balance */}
-      <button className="absolute right-1 top-2 lg:right-8 flex justify-end text-gray-500 hover:text-gray-800"> {/* Options btn */}
+      <button className="absolute right-1 top-2 lg:right-8 lg:top-1/2 lg:transform lg:-translate-y-1/2 flex justify-end text-gray-500 hover:text-gray-800"> {/* Options btn */}
         <BiDotsVerticalRounded className="text-2xl" />
       </button>
     </div>
