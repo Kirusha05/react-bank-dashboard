@@ -3,7 +3,7 @@ import Menubar from './Menubar'
 import MobileNav from './MobileNav';
 
 const Layout: React.FC = (props) => {
-  const [showMenu, setShowMenu] = useState(window.innerWidth >= 768);
+  const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => setShowMenu(prevShow => !prevShow);
 
