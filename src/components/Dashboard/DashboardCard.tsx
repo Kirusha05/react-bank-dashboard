@@ -39,7 +39,7 @@ const DashboardCard: React.FC<Card> = (props) => {
 
   return (
     <div
-      className={`${backgroundColor} rounded-3xl ${mobileSize} ${desktopSize} text-white ${mobilePaddingX} ${mobilePaddingY} ${desktopPaddingY} text-xs ${fontSize} flex cursor-pointer`}
+      className={`${backgroundColor} rounded-3xl ${mobileSize} ${desktopSize} text-white ${mobilePaddingX} ${mobilePaddingY} ${desktopPaddingY} text-xs ${fontSize} flex cursor-pointer shadow-md`}
       title="Click to edit"
       onClick={props.onClick}
     >
