@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
 
 @layer components {
   .btn {
@@ -51,5 +51,33 @@
 
   .bg-gradient {
     background: linear-gradient(45deg, rgb(76,111,255) 0%, rgb(214,101,255) 100%); 
+  }
+
+  .max-h-screen-chat {
+    max-height: calc(100vh - 6rem);
+  }
+
+  .message-bg {
+    background: #E3F6FC;
+  }
+
+  .message-bg span {
+    color: #6588DE;
+  }
+  
+  .message-bg-self {
+    background: #F3BA4A;
+  }
+
+  .message-bg-self span {
+    color: #FDFDFE;
+  }
+
+  .message-max-w {
+    max-width: 20rem;
+  }
+
+  .chat-input-btn {
+    @apply h-3/4 flex items-center justify-center px-4 font-semibold rounded-full;
   }
 }

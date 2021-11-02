@@ -49,12 +49,12 @@ const DashboardCardSlider: React.FC<Props> = (props) => {
       <div className="p-8 rounded-3xl border border-gray-200 shadow-lg w-full relative">
         <GrNext
           className="slider-btn -left-6 slider-btn-rotate"
-          onMouseDown={() => sliderMouseDown("left")}
+          onMouseDown={(event) => {event.preventDefault(); sliderMouseDown("left")}}
           title="Scroll to left"
         />
         <GrNext
           className="slider-btn -right-6"
-          onMouseDown={() => sliderMouseDown("right")}
+          onMouseDown={(event) => {event.preventDefault(); sliderMouseDown("right")}}
           title="Scroll to right"
         />
         <div
@@ -62,7 +62,7 @@ const DashboardCardSlider: React.FC<Props> = (props) => {
           ref={sliderRef}
         >
           <div className="card-wrapper bg-gradient justify-evenly relative">
-            <FiSettings className="absolute bottom-3 right-5 md:bottom-0 md:top-6 md:right-6 text-xl md:text-3xl text-white cursor-pointer" onClick={showModal} />
+            <FiSettings className="absolute bottom-3 right-5 md:bottom-0 md:top-6 md:right-6 text-xl md:text-3xl text-white hover:text-blue-100 cursor-pointer" onClick={showModal} />
             <DashboardCard {...cards[selectedCardID]} mini />
             <button
               className={`capitalize py-1 px-3 lg:px-6 lg:py-2 rounded-md ${
