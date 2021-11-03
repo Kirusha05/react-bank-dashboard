@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { BiSend } from "react-icons/bi";
 
 interface Props {
@@ -6,14 +6,14 @@ interface Props {
 }
 
 const ChatInput: React.FC<Props> = (props) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [inputText, setInputText] = useState("");
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    const messageText = inputRef.current!.value;
 
-    props.onSubmit(messageText);
-    inputRef.current!.value = "";
+    if (!inputText.trim()) return;
+    props.onSubmit(inputText);
+    setInputText("");
   };
 
   return (
@@ -25,14 +25,16 @@ const ChatInput: React.FC<Props> = (props) => {
         $
       </button>
       <input
-        ref={inputRef}
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+        onMouseEnter={(e) => e.currentTarget.focus()}
         type="text"
         className="flex-1 outline-none mx-2 font-semibold"
         placeholder="Type your text here"
       />
       <button
         type="submit"
-        className="chat-input-btn bg-blue-700 hover:bg-blue-800 text-white text-sm gap-1"
+        className={`chat-input-btn ${inputText.trim() ? "bg-blue-700" : "bg-gray-400"}  hover:bg-blue-800 text-white outline-none text-sm gap-1 transition-colors ease-in-out`}
       >
         Send
         <BiSend />

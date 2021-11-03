@@ -52,28 +52,28 @@ interface MenuProps {
 
 const Menubar: React.FC<MenuProps> = (props) => {
   return (
-    <div className={`fixed z-20 top-0 left-0 h-screen w-full md:w-60 border-r border-gray-200 flex flex-col justify-start bg-white px-12 sm:px-24 pb-20 md:pb-2 md:px-0 ${props.showMenu ? '' : 'hidden'} md:flex`}>
-      <MdClose className="md:hidden absolute top-10 right-12 sm:right-24 text-3xl" onClick={props.toggleMenu} />
+    <div className={`fixed z-50 top-0 left-0 h-screen w-full md:w-60 border-r border-gray-200 flex flex-col justify-start bg-white px-12 sm:px-24 pb-20 md:pb-2 md:px-0 ${props.showMenu ? '' : 'hidden'} md:flex`}>
+      <MdClose className="md:hidden absolute top-10 right-12 sm:right-24 text-3xl cursor-pointer" onClick={props.toggleMenu} />
       {/* Main Logo */}
       <div className="w-full py-8 ml-12">
         <img src={Logo} className="h-12" alt="SimSec logo" />
       </div>
       {/* Main Links (Dashboard, Messages) */}
       <nav className="w-full" aria-label="Main links">
-        <MenubarLinkGroup links={MENU_LINKS_CONFIG.main} />
+        <MenubarLinkGroup onClick={props.toggleMenu} links={MENU_LINKS_CONFIG.main} />
       </nav>
       {/* Separator */}
       <div className="mx-6 mt-3 mb-6 w-auto h-px bg-gray-200"></div>
       {/* Control links */}
       <nav className="w-full" aria-label="Control links">
-        <MenubarLinkGroup links={MENU_LINKS_CONFIG.control} />
+        <MenubarLinkGroup onClick={props.toggleMenu} links={MENU_LINKS_CONFIG.control} />
       </nav>
       {/* Account links */}
       <nav
         className="w-full flex-1 flex flex-col justify-end"
         aria-label="Control links"
       >
-        <MenubarLinkGroup links={MENU_LINKS_CONFIG.account} />
+        <MenubarLinkGroup onClick={props.toggleMenu} links={MENU_LINKS_CONFIG.account} />
       </nav>
     </div>
   );

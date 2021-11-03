@@ -3,7 +3,7 @@ import MenubarLink from "./MenubarLink";
 
 import { MenuLink } from "./MenubarLink";
 
-const MenubarLinkGroup: React.FC<{ links: MenuLink[] }> = (props) => {
+const MenubarLinkGroup: React.FC<{ links: MenuLink[], onClick: () => void }> = (props) => {
   return (
     <>
       {props.links.map((link) => (
@@ -14,6 +14,7 @@ const MenubarLinkGroup: React.FC<{ links: MenuLink[] }> = (props) => {
           to={link.to}
           unread={link.unread}
           danger={link.danger}
+          onClick={props.onClick}
         />
       ))}
     </>

@@ -17,7 +17,13 @@ interface ChatProps {
 
 let isInitial = true;
 
-const ChatArea: React.FC<ChatProps> = ({ messages, contactName, contactPhoto, setContacts, chatId }) => {
+const ChatArea: React.FC<ChatProps> = ({
+  messages,
+  contactName,
+  contactPhoto,
+  setContacts,
+  chatId,
+}) => {
   const chatRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,12 +31,13 @@ const ChatArea: React.FC<ChatProps> = ({ messages, contactName, contactPhoto, se
     if (isInitial) {
       isInitial = false;
       setTimeout(() => {
-        div.scrollTop = div.scrollHeight;
+        div.scrollTo({ top: div.scrollHeight, behavior: "smooth" });
       }, 100);
     } else {
-      setTimeout(() => {
-        div.scrollTo({ top: div.scrollHeight, behavior: "smooth"});
-      }, 10);
+      // setTimeout(() => {
+        div.scrollTo({ top: div.scrollHeight, behavior: "smooth" });
+        // div.scrollTop = div.scrollHeight;
+      // }, 10);
     }
   });
 
@@ -39,12 +46,10 @@ const ChatArea: React.FC<ChatProps> = ({ messages, contactName, contactPhoto, se
       messageText: text,
       self: true,
       timestamp: new Date(),
-      id: messages.length
+      id: messages.length,
     };
 
-    console.log(newMessage)
-
-    setContacts(prevContacts => {
+    setContacts((prevContacts) => {
       const newContacts: Contact[] = [...prevContacts];
       newContacts[chatId].messageHistory.push(newMessage);
       return newContacts;
@@ -70,7 +75,7 @@ const ChatArea: React.FC<ChatProps> = ({ messages, contactName, contactPhoto, se
   );
 
   return (
-    <div className="max-w-5xl flex-1 max-h-screen-chat px-4 pb-4 flex flex-col border-l border-gray-200 ">
+    <div className="z-30 max-w-5xl flex-1 h-screen-chat px-4 pb-4 flex flex-col lg:border-l border-gray-200 bg-white">
       {messagesArea}
       <ChatInput onSubmit={addMessageToConversation} />
     </div>

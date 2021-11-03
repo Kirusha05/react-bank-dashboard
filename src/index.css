@@ -53,8 +53,14 @@
     background: linear-gradient(45deg, rgb(76,111,255) 0%, rgb(214,101,255) 100%); 
   }
 
-  .max-h-screen-chat {
-    max-height: calc(100vh - 6rem);
+  .h-screen-chat {
+    height: calc(100vh - 8rem);
+  }
+
+  @media screen and (min-width: 768px) {
+    .h-screen-chat {
+      height: calc(100vh - 6rem);
+    }
   }
 
   .message-bg {

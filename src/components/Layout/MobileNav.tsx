@@ -9,7 +9,7 @@ const MobileNav: React.FC<{ toggleMenu: () => void }> = (props) => {
       onClick={props.toggleMenu}
     >
       <img src={Logo} className="h-8" alt="SimSec logo" />
-      <MdMenu className="text-3xl" />
+      <MdMenu className="text-3xl cursor-pointer" />
     </div>
   );
 };

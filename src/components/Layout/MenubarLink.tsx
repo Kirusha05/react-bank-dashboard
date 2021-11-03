@@ -10,13 +10,18 @@ export interface MenuLink {
   danger?: boolean;
 }
 
-const MenubarLink: React.FC<MenuLink> = (props) => {
+interface Props extends MenuLink {
+  onClick: () => void;
+}
+
+const MenubarLink: React.FC<Props> = (props) => {
   const Icon = props.icon;
 
   return (
     <Link
       exact
       to={props.to}
+      onClick={props.onClick}
       className="text-sm w-full px-6 py-2 mb-2 text-gray-700 font-bold flex outline-none transition-colors ease-in hover:bg-gray-50"
       activeClassName="border-l-2 border-blue-500 text-blue-500 bg-gray-50"
     >
