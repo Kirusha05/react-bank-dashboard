@@ -15,7 +15,7 @@ const ChatHeader: React.FC<Props> = (props) => {
           onClick={props.goBack}
         />
       )}
-      <h2 className="font-bold text-2xl md:text-3xl">{props.userName || "Chat"}</h2>
+      <h2 className="font-bold text-xl md:text-3xl">{props.userName || "Chat"}</h2>
     </div>
   );
 };

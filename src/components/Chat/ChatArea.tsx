@@ -26,18 +26,21 @@ const ChatArea: React.FC<ChatProps> = ({
 }) => {
   const chatRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const scrollToBottomOfChat = () => {
     const div = chatRef.current!;
+    div.scrollTo({ top: div.scrollHeight, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', scrollToBottomOfChat)
+  }, []);
+
+  useEffect(() => {
     if (isInitial) {
       isInitial = false;
-      setTimeout(() => {
-        div.scrollTo({ top: div.scrollHeight, behavior: "smooth" });
-      }, 100);
+      setTimeout(() => scrollToBottomOfChat(), 100);
     } else {
-      // setTimeout(() => {
-        div.scrollTo({ top: div.scrollHeight, behavior: "smooth" });
-        // div.scrollTop = div.scrollHeight;
-      // }, 10);
+      scrollToBottomOfChat()
     }
   });
 
@@ -75,7 +78,7 @@ const ChatArea: React.FC<ChatProps> = ({
   );
 
   return (
-    <div className="z-30 max-w-5xl flex-1 h-screen-chat px-4 pb-4 flex flex-col lg:border-l border-gray-200 bg-white">
+    <div className="z-30 lg:max-w-5xl lg:flex-1 h-screen-chat px-4 pb-4 flex flex-col lg:border-l border-gray-200 bg-white absolute top-0 left-0 w-full lg:w-auto lg:static ">
       {messagesArea}
       <ChatInput onSubmit={addMessageToConversation} />
     </div>
