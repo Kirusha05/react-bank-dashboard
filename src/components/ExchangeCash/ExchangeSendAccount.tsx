@@ -8,6 +8,7 @@ interface SendAccountProps {
   setExchangeType: (type: "send" | "request", phase: number) => void;
   exchangerName: string;
   exchangerPhone: string;
+  descriptionEdit: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const ExchangeSendAccount: React.FC<SendAccountProps> = (props) => {
@@ -56,7 +57,7 @@ const ExchangeSendAccount: React.FC<SendAccountProps> = (props) => {
       </div>
       <div className="modal-shadow-box w-full">
         <p className="text-sm text-gray-600">Description</p>
-        <p className="font-semibold text-gray-700">2021 payment</p>
+        <input className="font-semibold text-gray-700 outline-none" placeholder="2021 payment" title="Edit description" onChange={props.descriptionEdit} />
       </div>
       <div className="h-px bg-gray-200 w-full my-4" />
       <button

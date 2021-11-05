@@ -19,6 +19,7 @@ interface SendDetailsProps {
   setExchangeType: (type: "send" | "request", phase: number) => void;
   exchangerName: string;
   exchangerPhone: string;
+  description: string;
 }
 
 const ExchangeSendDetails: React.FC<SendDetailsProps> = (props) => {
@@ -26,7 +27,7 @@ const ExchangeSendDetails: React.FC<SendDetailsProps> = (props) => {
     <div className="w-full modal-page">
       <div className="modal-shadow-box text-sm">
         <p className="font-bold">Description</p>
-        <p>Money for invoice 20002</p>
+        <p>{props.description}</p>
       </div>
       <div className="modal-shadow-box flex flex-col gap-2">
         <DetailField title="Amount" value="$123" />

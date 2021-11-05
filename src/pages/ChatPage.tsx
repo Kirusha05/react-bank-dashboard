@@ -24,6 +24,7 @@ const ChatPage = () => {
   const [exchangeModalIsActive, setExchangeModalIsActive] = useState(false);
   const [selectedExchangeType, setSelectedExchangeType] =
     useState<ExchangeType>(null);
+  const [paymentDescription, setPaymentDescription] = useState("");
 
   const chatSelectHandler = (id: number) => {
     setSelectedChatID(id);
@@ -108,6 +109,7 @@ const ChatPage = () => {
                 exchangerName={selectedContact!.contactName}
                 exchangerPhone={selectedContact!.phoneNumber}
                 setExchangeType={setExchangeType}
+                descriptionEdit={(e) => setPaymentDescription(e.target.value)}
                 goBack={goBack}
               />
             )}
@@ -117,6 +119,7 @@ const ChatPage = () => {
                 exchangerName={selectedContact!.contactName}
                 exchangerPhone={selectedContact!.phoneNumber}
                 setExchangeType={setExchangeType}
+                description={paymentDescription}
                 goBack={goBack}
               />
             )}
