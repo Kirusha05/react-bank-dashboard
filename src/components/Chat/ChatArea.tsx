@@ -13,6 +13,7 @@ interface ChatProps {
   contactPhoto: string;
   chatId: number;
   setContacts: Dispatch<SetStateAction<Contact[]>>;
+  showExchangeModal: () => void;
 }
 
 let isInitial = true;
@@ -23,6 +24,7 @@ const ChatArea: React.FC<ChatProps> = ({
   contactPhoto,
   setContacts,
   chatId,
+  showExchangeModal,
 }) => {
   const chatRef = useRef<HTMLDivElement>(null);
 
@@ -32,7 +34,7 @@ const ChatArea: React.FC<ChatProps> = ({
   };
 
   useEffect(() => {
-    window.addEventListener('resize', scrollToBottomOfChat)
+    window.addEventListener("resize", scrollToBottomOfChat);
   }, []);
 
   useEffect(() => {
@@ -40,7 +42,7 @@ const ChatArea: React.FC<ChatProps> = ({
       isInitial = false;
       setTimeout(() => scrollToBottomOfChat(), 100);
     } else {
-      scrollToBottomOfChat()
+      scrollToBottomOfChat();
     }
   });
 
@@ -78,11 +80,11 @@ const ChatArea: React.FC<ChatProps> = ({
   );
 
   return (
-    <div className="z-30 lg:max-w-5xl lg:flex-1 h-screen-chat px-4 pb-4 flex flex-col lg:border-l border-gray-200 bg-white absolute top-0 left-0 w-full lg:w-auto lg:static ">
+    <div className="z-20 px-4 pb-4 flex flex-col bg-white absolute top-0 left-0 w-full h-screen-chat lg:w-auto lg:static lg:max-w-5xl lg:flex-1 lg:border-l border-gray-200">
       {messagesArea}
-      <ChatInput onSubmit={addMessageToConversation} />
+      <ChatInput onSubmit={addMessageToConversation} showExchangeModal={showExchangeModal} />
     </div>
   );
 };
 
-export default ChatArea;
+export default React.memo(ChatArea);

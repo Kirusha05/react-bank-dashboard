@@ -86,4 +86,20 @@
   .chat-input-btn {
     @apply h-3/4 flex items-center justify-center px-4 font-semibold rounded-full;
   }
+
+  path {
+    pointer-events: auto;
+  }
+
+  .modal-shadow-box {
+    @apply p-6 rounded-2xl shadow-md border border-gray-200 mt-4
+  }
+
+  .modal-btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 rounded-lg w-full py-3 text-sm text-white font-semibold;
+  }
+
+  .modal-btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 rounded-lg w-full py-3 text-sm text-gray-700 font-bold;
+  }
 }

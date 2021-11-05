@@ -3,6 +3,7 @@ import { BiSend } from "react-icons/bi";
 
 interface Props {
   onSubmit: (text: string) => void; 
+  showExchangeModal: () => void;
 }
 
 const ChatInput: React.FC<Props> = (props) => {
@@ -21,7 +22,7 @@ const ChatInput: React.FC<Props> = (props) => {
       className="h-14 border border-gray-200 rounded-2xl flex items-center justify-between px-5"
       onSubmit={submitHandler}
     >
-      <button className="chat-input-btn bg-blue-100 hover:opacity-100 text-gray-800 opacity-70">
+      <button type="button" onClick={props.showExchangeModal} className="chat-input-btn bg-blue-100 hover:opacity-100 text-gray-800 opacity-70">
         $
       </button>
       <input

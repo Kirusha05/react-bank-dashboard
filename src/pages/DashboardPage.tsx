@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CardSettingsModal from "../components/CardSettingsModal/CardSettingsModal";
+import CardSettings from "../components/CardSettings/CardSettings";
 import DashboardButtons from "../components/Dashboard/DashboardButtons";
 import DashboardCardSlider from "../components/Dashboard/DashboardCardSlider";
 import DashboardExpenses from "../components/Dashboard/DashboardExpenses";
@@ -62,7 +62,7 @@ const DashboardPage: React.FC = () => {
 
   return (
     <div className="w-full">
-      <CardSettingsModal
+      <CardSettings
         card={cards[selectedCardID]}
         isActive={showCardModal}
         hideModal={hideModalHandler}
