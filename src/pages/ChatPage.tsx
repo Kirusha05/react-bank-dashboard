@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ChatSelector from "../components/Chat/ChatSelector";
 import MessagesHeader from "../components/Chat/ChatHeader";
 import ChatArea from "../components/Chat/ChatArea";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 import CONTACTS from "./contacts";
 import ExchangeTypeSelect from "../components/ExchangeCash/ExchangeTypeSelect";
@@ -45,11 +46,11 @@ const ChatPage = () => {
     if (!selectedExchangeType) setExchangeModalIsActive(false);
     if (selectedExchangeType?.type === "send")
       switch (selectedExchangeType.phase) {
-        case 0:
+        case 1:
           setSelectedExchangeType(null);
           break;
-        case 1:
-          setSelectedExchangeType({ type: "send", phase: 0 });
+        case 2:
+          setSelectedExchangeType({ type: "send", phase: 1 });
           break;
         default:
           break;
@@ -86,6 +87,14 @@ const ChatPage = () => {
       </div>
       {exchangeModalIsActive && (
         <Modal isActive={exchangeModalIsActive} hideModal={closeExchangeModal}>
+          {(!selectedExchangeType ||
+            (selectedExchangeType.type === "send" &&
+              selectedExchangeType.phase !== 3)) && (
+            <IoIosArrowRoundBack
+              className="text-5xl -my-4 cursor-pointer transition-transform ease-in transform -ml-2 lg:hover:-translate-x-1"
+              onClick={goBack}
+            />
+          )}
           {!selectedExchangeType && (
             <ExchangeTypeSelect
               exchangerName={selectedContact!.contactName}
@@ -94,7 +103,7 @@ const ChatPage = () => {
             />
           )}
           {selectedExchangeType?.type === "send" &&
-            selectedExchangeType.phase === 0 && (
+            selectedExchangeType.phase === 1 && (
               <ExchangeSendAccount
                 exchangerName={selectedContact!.contactName}
                 exchangerPhone={selectedContact!.phoneNumber}
@@ -103,7 +112,7 @@ const ChatPage = () => {
               />
             )}
           {selectedExchangeType?.type === "send" &&
-            selectedExchangeType.phase === 1 && (
+            selectedExchangeType.phase === 2 && (
               <ExchangeSendDetails
                 exchangerName={selectedContact!.contactName}
                 exchangerPhone={selectedContact!.phoneNumber}
@@ -112,7 +121,7 @@ const ChatPage = () => {
               />
             )}
           {selectedExchangeType?.type === "send" &&
-            selectedExchangeType.phase === 2 && (
+            selectedExchangeType.phase === 3 && (
               <ExchangeSendSuccess
                 exchangerName={selectedContact!.contactName}
                 endSendExchange={closeExchangeModal}

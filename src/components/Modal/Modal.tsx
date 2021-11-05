@@ -12,7 +12,7 @@ const Backdrop = (props: { hideModal: () => void }) => {
 
 const ModalOverlay = (props: any) => {
   return (
-    <div className="bg-white z-50 fixed top-1/2 left-1/2 w-5/6 sm:w-96 p-6 transform -translate-x-1/2 -translate-y-1/2 rounded-2xl flex flex-col items-start transition-all ease-in" {...props} >
+    <div className="bg-white z-50 fixed top-1/2 left-1/2 w-5/6 sm:w-96 p-6 transform -translate-x-1/2 -translate-y-1/2 rounded-2xl flex flex-col items-start overflow-hidden transition-all ease-in" {...props} >
       {props.children}
     </div>
   );

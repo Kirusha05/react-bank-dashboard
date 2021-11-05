@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import ManPhoto from "../../assets/person-2.jpg";
-import { IoIosArrowRoundBack } from "react-icons/io";
+import { FiChevronDown } from "react-icons/fi";
+import ExchangeAccountSelect from "./ExchangeAccountSelect";
 
 interface SendAccountProps {
   goBack: () => void;
@@ -10,12 +11,15 @@ interface SendAccountProps {
 }
 
 const ExchangeSendAccount: React.FC<SendAccountProps> = (props) => {
+  const [selectAccountActive, setSelectAccountActive] = useState(false);
+
+  if (selectAccountActive)
+    return (
+      <ExchangeAccountSelect onProceed={() => setSelectAccountActive(false)} />
+    );
+
   return (
-    <>
-      <IoIosArrowRoundBack
-        className="text-5xl -my-4 cursor-pointer transition-transform ease-in transform hover:-translate-x-1"
-        onClick={props.goBack}
-      />
+    <div className="w-full modal-page">
       <div className="modal-shadow-box flex items-center w-full">
         <img
           src={ManPhoto}
@@ -23,21 +27,30 @@ const ExchangeSendAccount: React.FC<SendAccountProps> = (props) => {
           className="w-12 rounded-3xl mr-4"
         />
         <div>
-          <h1 className="text-base font-bold text-left">{props.exchangerName}</h1>
-          <p className="text-sm text-left text-gray-600">{props.exchangerPhone} · vgv</p>
+          <h1 className="text-base font-bold text-left">
+            {props.exchangerName}
+          </h1>
+          <p className="text-sm text-left text-gray-600">
+            +{props.exchangerPhone} · vgv
+          </p>
         </div>
       </div>
       <div className="modal-shadow-box w-full">
         <div className="flex items-center justify-between w-full">
-          <h2 className="font-bold text-xl">PMI</h2>
+          <h2 className="font-bold text-lg md:text-xl">PMI</h2>
           <input
-            className="font-semibold text-2xl text-gray-500 flex-1 w-20 text-right outline-none"
+            className="font-semibold text-lg md:text-2xl text-gray-500 flex-1 w-20 text-right outline-none"
             placeholder="0"
             title="Click to edit"
           />
         </div>
         <div className="flex items-center justify-between">
-          <p className="text-sm">Main: £3.30</p>
+          <p
+            className="text-sm cursor-pointer hover:text-blue-600"
+            onClick={() => setSelectAccountActive(true)}
+          >
+            Main: £3.30 <FiChevronDown className="text-sm inline" />
+          </p>
           <p className="text-sm font-semibold">£0</p>
         </div>
       </div>
@@ -48,12 +61,12 @@ const ExchangeSendAccount: React.FC<SendAccountProps> = (props) => {
       <div className="h-px bg-gray-200 w-full my-4" />
       <button
         className="modal-btn-primary"
-        onClick={() => props.setExchangeType("send", 1)}
+        onClick={() => props.setExchangeType("send", 2)}
       >
         Continue
       </button>
       <button className="modal-btn-secondary mt-12">Need help?</button>
-    </>
+    </div>
   );
 };
 

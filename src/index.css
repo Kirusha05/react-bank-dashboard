@@ -91,9 +91,29 @@
     pointer-events: auto;
   }
 
-  .modal-shadow-box {
-    @apply p-6 rounded-2xl shadow-md border border-gray-200 mt-4
+  .modal-page {
+    animation: page-fade-in 0.4s ease-out forwards;
   }
+
+  @keyframes page-fade-in {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    } to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .modal-shadow-box {
+    @apply p-6 rounded-2xl shadow-md border border-gray-200 mt-4;
+  }
+
+  @media screen and (max-width: 768px) {
+    .modal-shadow-box {
+      @apply p-4;
+    }
+  } 
 
   .modal-btn-primary {
     @apply bg-blue-500 hover:bg-blue-600 rounded-lg w-full py-3 text-sm text-white font-semibold;

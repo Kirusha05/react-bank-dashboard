@@ -1,6 +1,5 @@
 import React from "react";
-import ManPhoto from "../../assets/person-2.jpg";
-import { IoIosArrowRoundBack } from "react-icons/io";
+import ExchangeArt from "../../assets/exchange-art.jpg";
 
 interface ButtonProps {
   title: string;
@@ -14,10 +13,14 @@ const ExchangeTypeButton: React.FC<ButtonProps> = (props) => {
       className="modal-shadow-box flex items-start w-full hover:border-blue-400 hover:bg-blue-50 transition-colors ease-in"
       onClick={props.onClick}
     >
-      <img src={ManPhoto} alt="User Avatar" className="w-10 rounded-xl mr-4" />
+      <img
+        src={ExchangeArt}
+        alt="User Avatar"
+        className="w-10 rounded-xl mr-4"
+      />
       <div className="relative -top-1">
-        <p className="text-base font-bold text-left">{props.title}</p>
-        <p className="text-sm text-left text-gray-700">{props.description}</p>
+        <p className="text-sm md:text-base font-bold text-left">{props.title}</p>
+        <p className="text-xs md:text-sm text-left text-gray-700">{props.description}</p>
       </div>
     </button>
   );
@@ -32,10 +35,9 @@ interface ExchangeSelectProps {
 const ExchangeTypeSelect: React.FC<ExchangeSelectProps> = (props) => {
   const firstName = props.exchangerName.split(" ")[0];
   return (
-    <>
-      <IoIosArrowRoundBack className="text-5xl -my-4 cursor-pointer transition-transform ease-in transform hover:-translate-x-1" onClick={props.goBack} />
+    <div className="w-full modal-page">
       <ExchangeTypeButton
-        onClick={() => props.setExchangeType("send", 0)}
+        onClick={() => props.setExchangeType("send", 1)}
         title={`Send money to ${firstName}`}
         description={`Send money from your Simsec PMI to your friend, ${firstName}`}
       />
@@ -44,7 +46,7 @@ const ExchangeTypeSelect: React.FC<ExchangeSelectProps> = (props) => {
         title={`Request money from ${firstName}`}
         description={`Request money from your friend, ${firstName}`}
       />
-    </>
+    </div>
   );
 };
 

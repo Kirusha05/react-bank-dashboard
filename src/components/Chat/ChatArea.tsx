@@ -35,6 +35,8 @@ const ChatArea: React.FC<ChatProps> = ({
 
   useEffect(() => {
     window.addEventListener("resize", scrollToBottomOfChat);
+
+    return () => window.removeEventListener("resize", scrollToBottomOfChat);
   }, []);
 
   useEffect(() => {
