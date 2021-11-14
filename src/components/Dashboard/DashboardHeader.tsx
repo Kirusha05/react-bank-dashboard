@@ -14,7 +14,7 @@ const DashboardHeader: React.FC = () => {
         </div>
         {/* Profile Info */}
         <div className="flex flex-col items-start">
-          <div className="font-thin text-xl md:text-3xl mb-2">Marie Claire</div> {/* Profile Name */}
+          <div className="font-thin text-xl md:text-3xl mb-2">Ally Rose</div> {/* Profile Name */}
           {/* Profile Edit */}
           <div className="flex gap-2 md:gap-6"> 
             <button className="text-xs md:text-sm text-gray-500 flex gap-1 items-center hover:text-gray-900 hover:underline">

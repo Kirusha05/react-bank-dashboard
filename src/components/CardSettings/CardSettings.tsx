@@ -29,7 +29,6 @@ const SettingSection: React.FC<{
   );
 };
 
-
 interface Props {
   isActive: boolean;
   hideModal: () => void;
@@ -46,14 +45,20 @@ const CardSettings: React.FC<Props> = (props) => {
 
   return (
     <Modal {...props}>
-      <MdClose onClick={props.hideModal} className="absolute top-6 right-6 text-2xl cursor-pointer" />
+      <MdClose
+        onClick={props.hideModal}
+        className="absolute top-6 right-6 text-2xl cursor-pointer"
+      />
       <p className="text-lg font-bold uppercase">{card.cardType} PMI</p>
       <div className="my-4 self-center">
         <DashboardCard {...card} />
       </div>
       <p className="text-gray-700 text-sm">
-        This PMI is currently active {card.isDefault ? "and is" : "but isn't"}{" "}
-        set to your default charge.
+        {!isDisabled
+          ? `This PMI is currently active ${
+              card.isDefault ? "and is" : "but isn't"
+            } set to your default charge.`
+          : `This PMI is currently disabled. Please select another PMI to your default charge!`}
       </p>
       {/* Disable PMI */}
       <div className="w-full self-center flex justify-center items-center gap-6 py-4 lg:py-6 border-b border-gray-200">
@@ -82,7 +87,9 @@ const CardSettings: React.FC<Props> = (props) => {
         title="Security"
         desc="Disable online transactions & more"
       />
-      <button className="bg-gray-200 hover:bg-gray-300 rounded-lg w-full py-2 text-gray-700 font-bold mt-8 lg:mt-16">Need help?</button>
+      <button className="bg-gray-200 hover:bg-gray-300 rounded-lg w-full py-2 text-gray-700 font-bold mt-8 lg:mt-16">
+        Need help?
+      </button>
     </Modal>
   );
 };

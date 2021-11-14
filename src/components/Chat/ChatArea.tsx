@@ -5,7 +5,7 @@ import ProfilePhoto from "../../assets/profile-photo.jpg";
 import ChatInput from "./ChatInput";
 import { Contact } from "./ChatContact";
 
-const SelfUsername = "Vlad Valeanu";
+const SelfUsername = "Ally Rose";
 
 interface ChatProps {
   messages: Message[];
@@ -35,17 +35,15 @@ const ChatArea: React.FC<ChatProps> = ({
 
   useEffect(() => {
     window.addEventListener("resize", scrollToBottomOfChat);
-
     return () => window.removeEventListener("resize", scrollToBottomOfChat);
   }, []);
 
   useEffect(() => {
     if (isInitial) {
       isInitial = false;
+      // wait 100ms for page to load before scrolling to bottom
       setTimeout(() => scrollToBottomOfChat(), 100);
-    } else {
-      scrollToBottomOfChat();
-    }
+    } else scrollToBottomOfChat();
   });
 
   const addMessageToConversation = (text: string) => {
@@ -68,6 +66,7 @@ const ChatArea: React.FC<ChatProps> = ({
       className="flex flex-col justify-start w-full flex-1 overflow-y-scroll scrollbar-hide pb-4"
       ref={chatRef}
     >
+      {!messages.length && <p className="text-center font-semibold text-xl mt-8">No messages here... Send a message to {contactName}!</p>}
       {messages.map((message) => (
         <ChatMessage
           key={message.id}
@@ -84,7 +83,10 @@ const ChatArea: React.FC<ChatProps> = ({
   return (
     <div className="z-20 px-4 pb-4 flex flex-col bg-white absolute top-0 left-0 w-full h-screen-chat lg:w-auto lg:static lg:max-w-5xl lg:flex-1 lg:border-l border-gray-200">
       {messagesArea}
-      <ChatInput onSubmit={addMessageToConversation} showExchangeModal={showExchangeModal} />
+      <ChatInput
+        onSubmit={addMessageToConversation}
+        showExchangeModal={showExchangeModal}
+      />
     </div>
   );
 };

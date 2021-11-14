@@ -19,14 +19,14 @@ const CONTACTS: Contact[] = [
       },
       {
         self: false,
-        messageText: "Hello Vlad, how are you?",
+        messageText: "Hello Ally, how are you?",
         timestamp: new Date("December 17, 2020 13:24:00"),
         id: 1,
       },
       {
         self: true,
         messageText:
-          "Wow! These photos are amazing! I’ll add them to moodboard and send you the final presentation. Thank you!",
+          "Hi! These photos are amazing! I’ll add them to moodboard and send you the final presentation. Thank you!",
         timestamp: new Date("December 17, 2020 13:26:00"),
         id: 2,
       },
@@ -39,29 +39,42 @@ const CONTACTS: Contact[] = [
       {
         self: true,
         messageText:
-          "This is gonna be our greatest project ever! It's a new beginning for both of us!",
+          "This is gonna be our greatest project ever! I'm so excited!",
         timestamp: new Date(),
         id: 4,
       },
       {
         self: false,
         messageText:
-          "Looks good to me! After 2 years of practice, I'm finally doing payed work :))",
+          "Yeah, but I think we should bring in more people, it'll be a lotta fun :))",
         timestamp: new Date(),
         id: 5,
       },
       {
         self: true,
         messageText:
-          "I think I will give you a pay raise! I realize this chat page is actually more complex than I thought and I really like your progress! So, whatchu say about $125 per week?",
+          "I also had this idea, my friend Richard seems good enough, I'll speak to him tonight!",
         timestamp: new Date(),
         id: 6,
       },
       {
-        self: false,
-        messageText: "Sounds good to me boss! 💪",
+        self: true,
+        messageText:
+          "Btw, I found a good rent offer for an office nearby us, I've just emailed them!",
         timestamp: new Date(),
         id: 7,
+      },
+      {
+        self: false,
+        messageText: "Sounds good to me! 💪",
+        timestamp: new Date(),
+        id: 8,
+      },
+      {
+        self: false,
+        messageText: "Call me if you get any news!",
+        timestamp: new Date(),
+        id: 9,
       },
     ],
   },
@@ -79,14 +92,14 @@ const CONTACTS: Contact[] = [
       },
       {
         self: false,
-        messageText: "Hello Vlad, how are you?",
+        messageText: "Hello Ally, how are you?",
         timestamp: new Date("December 17, 2020 13:24:00"),
         id: 1,
       },
       {
         self: true,
         messageText:
-          "Wow! These photos are amazing! I’ll add them to moodboard and send you the final presentation. Thank you!",
+          "Hi! These photos are amazing! I’ll add them to moodboard and send you the final presentation. Thank you!",
         timestamp: new Date("December 17, 2020 13:26:00"),
         id: 2,
       },
@@ -94,21 +107,21 @@ const CONTACTS: Contact[] = [
   },
   {
     id: 2,
-    contactName: "Lise Bernier",
+    contactName: "Jess Monet",
     contactPhoto: WomanPhoto2,
     phoneNumber: "447543773777",
     messageHistory: [],
   },
   {
     id: 3,
-    contactName: "Lise Bernier",
+    contactName: "Roxanne Dupont",
     contactPhoto: WomanPhoto2,
     phoneNumber: "447543773277",
     messageHistory: [],
   },
   {
     id: 4,
-    contactName: "Lise Bernier",
+    contactName: "Lavigne Laurent",
     contactPhoto: WomanPhoto2,
     phoneNumber: "447543771777",
     messageHistory: [],

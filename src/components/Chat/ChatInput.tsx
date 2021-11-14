@@ -22,7 +22,7 @@ const ChatInput: React.FC<Props> = (props) => {
       className="h-14 border border-gray-200 rounded-2xl flex items-center justify-between px-5"
       onSubmit={submitHandler}
     >
-      <button type="button" onClick={props.showExchangeModal} className="chat-input-btn bg-blue-100 hover:opacity-100 text-gray-800 opacity-70">
+      <button type="button" onClick={props.showExchangeModal} className="chat-input-btn bg-blue-100 hover:opacity-100 text-gray-800 opacity-70" title="Exchange Money">
         $
       </button>
       <input
@@ -35,7 +35,7 @@ const ChatInput: React.FC<Props> = (props) => {
       />
       <button
         type="submit"
-        className={`chat-input-btn ${inputText.trim() ? "bg-blue-700" : "bg-gray-400"}  hover:bg-blue-800 text-white outline-none text-sm gap-1 transition-colors ease-in-out`}
+        className={`chat-input-btn ${inputText.trim() ? "bg-blue-700" : "bg-gray-400"}  ${inputText.trim() ? "hover:bg-blue-800" : ""} text-white outline-none text-sm gap-1 transition-colors ease-in-out`}
       >
         Send
         <BiSend />

@@ -5,11 +5,11 @@ import ChatArea from "../components/Chat/ChatArea";
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 import CONTACTS from "./contacts";
-import ExchangeTypeSelect from "../components/ExchangeCash/ExchangeTypeSelect";
+import ExchangeTypeSelect from "../components/ExchangeMoney/ExchangeTypeSelect";
 import Modal from "../components/Modal/Modal";
-import ExchangeSendAccount from "../components/ExchangeCash/ExchangeSendAccount";
-import ExchangeSendDetails from "../components/ExchangeCash/ExchangeSendDetails";
-import ExchangeSendSuccess from "../components/ExchangeCash/ExchangeSendSuccess";
+import ExchangeSendAccount from "../components/ExchangeMoney/ExchangeSendAccount";
+import ExchangeSendDetails from "../components/ExchangeMoney/ExchangeSendDetails";
+import ExchangeSendSuccess from "../components/ExchangeMoney/ExchangeSendSuccess";
 
 type ExchangeType =
   | { type: "send"; phase: number }
